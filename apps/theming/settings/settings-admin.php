@@ -22,6 +22,16 @@
 
 \OC_Util::checkAdminUser();
 
+$theming = new \OCA\Theming\Template(
+	\OC::$server->getConfig(), 
+	\OC::$server->getL10N('theming')
+);
+
 $template = new OCP\Template('theming', 'settings-admin');
+
+$template->assign('name', $theming->getName());
+$template->assign('url', $theming->getUrl());
+$template->assign('slogan', $theming->getSlogan());
+$template->assign('color', $theming->getColor());
 
 return $template->fetchPage();

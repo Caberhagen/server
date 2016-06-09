@@ -18,3 +18,46 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  *
  */
+
+function setThemingValue(setting, value) {
+	OC.AppConfig.setValue('theming', setting, value);
+}
+
+$(document).ready(function () {
+	
+	$('#themingName').keyup(function (e) {
+		if (e.keyCode == 13) {
+			setThemingValue('name', $(this).val());
+		}
+	}).focusout(function (e) {
+		setThemingValue('name', $(this).val());
+	});
+
+	$('#themingUrl').keyup(function (e) {
+		if (e.keyCode == 13) {
+			setThemingValue('url', $(this).val());
+			//OC.AppConfig.setValue('theming', 'name', $(this).val());
+		}
+	}).focusout(function (e) {
+		setThemingValue('url', $(this).val());
+	});
+
+	$('#themingSlogan').keyup(function (e) {
+		if (e.keyCode == 13) {
+			setThemingValue('slogan', $(this).val());
+			//OC.AppConfig.setValue('theming', 'name', $(this).val());
+		}
+	}).focusout(function (e) {
+		setThemingValue('slogan', $(this).val());
+	});
+
+	$('#themingColor').keyup(function (e) {
+		if (e.keyCode == 13) {
+			setThemingValue('color', $(this).val());
+			//OC.AppConfig.setValue('theming', 'name', $(this).val());
+		}
+	}).focusout(function (e) {
+		setThemingValue('color', $(this).val());
+	});
+
+});
