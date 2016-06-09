@@ -3,6 +3,7 @@ build:
     image: morrisjobke/nextcloud-ci-php7:1.0
     commands:
       - git submodule update --init
+      - ./autotest-js.sh
       - ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --admin-user admin --admin-pass admin --database sqlite --database-pass=''
       - ./autotest.sh sqlite
 
